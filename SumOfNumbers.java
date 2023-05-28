@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class SumOfNumbers {
     public static void main(String args[]) {
-        int m, n, sum = 0;
+        int n, sum = 0;
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter a value");
         String number = myObj.nextLine();
