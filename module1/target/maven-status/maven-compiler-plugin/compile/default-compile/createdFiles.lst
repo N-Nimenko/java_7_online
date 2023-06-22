@@ -1,0 +1,7 @@
+library\controller\Controller.class
+library\entity\AuthorEntity.class
+library\entity\BookEntity.class
+library\dao\Dao.class
+library\entity\BaseEntity.class
+library\Main.class
+library\service\Service.class
