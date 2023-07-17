@@ -9,11 +9,19 @@ public class FileHelperStorage {
     public void createFile(String filePath) {
         try {
             File file = new File(filePath);
-            if (file.createNewFile()) {
-                System.out.println("File created successfully.");
-            } else {
+            
+            if (file.exists()) {
                 System.out.println("File already exists.");
+            } else {
+                file.createNewFile();
+                System.out.println("File created successfully.");
             }
+            
+//            if (file.createNewFile()) {
+//                System.out.println("File created successfully.");
+//            } else {
+//                System.out.println("File already exists.");
+//            }
         } catch (IOException e) {
             System.err.println("An error occurred: " + e.getMessage());
         }
@@ -21,11 +29,19 @@ public class FileHelperStorage {
 
     public void createDirectory(String directoryPath) {
         File directory = new File(directoryPath);
-        if (directory.mkdir()) {
-            System.out.println("Directory created successfully.");
-        } else {
+
+        if (directory.exists()) {
             System.out.println("Directory already exists.");
+        } else {
+            directory.mkdir();
+            System.out.println("Directory created successfully.");
         }
+        
+//        if (directory.mkdir()) {
+//            System.out.println("Directory created successfully.");
+//        } else {
+//            System.out.println("Directory already exists.");
+//        }
     }
 
     public void deleteFile(String filePath) {
