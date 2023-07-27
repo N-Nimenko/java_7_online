@@ -1,0 +1,56 @@
+9
+Tokyo
+3
+2 5000
+3 7000
+4 10000
+Kyoto
+4
+1 7000
+2 3000
+4 6000
+5 5000
+Nagoya
+3
+2 4000
+3 6000
+5 2000
+Sapporo
+2
+5 8000
+6 12000
+Fukuoka
+2
+4 9000
+6 6000
+Nara
+2
+2 4000
+6 7000
+Kobe
+3
+2 5000
+5 3000
+7 5000
+Okinawa
+2
+7 12000
+8 10000
+Hakodate
+2
+4 5000
+6 8000
+Nagasaki
+2
+3 3000
+7 6000
+10
+Tokyo Kyoto
+Sapporo Fukuoka
+Kobe Okinawa
+Tokyo Okinawa
+Nara Sapporo
+Kyoto Nagoya
+Sapporo Hakodate
+Hakodate Nagasaki
+Fukuoka Nagasaki
