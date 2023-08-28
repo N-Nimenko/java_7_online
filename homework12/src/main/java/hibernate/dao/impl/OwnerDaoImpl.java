@@ -139,28 +139,29 @@ public class OwnerDaoImpl implements OwnerDao {
         }
         return Collections.emptyList();
     }
-        @Override
-        public void addPropertyToOwner(Long ownerId, Long propertyId) {
-            Transaction transaction = null;
-            try (Session session = sessionFactory.getCurrentSession()) {
-                transaction = session.beginTransaction();
 
-                Owner owner = session.get(Owner.class, ownerId);
-                Property property = session.get(Property.class, propertyId);
+    @Override
+    public void addPropertyToOwner(Long ownerId, Long propertyId) {
+        Transaction transaction = null;
+        try (Session session = sessionFactory.getCurrentSession()) {
+            transaction = session.beginTransaction();
 
-                if (owner != null && property != null) {
-                    owner.getProperties().add(property);
-                    session.update(owner);
-                    transaction.commit();
-                } else {
-                    System.out.println("Owner or property not found.");
-                }
-            } catch (Exception e) {
-                System.out.println("An error occurred while adding property to owner: " + e.getMessage());
-                if (transaction != null) {
-                    transaction.rollback();
-                }
+            Owner owner = session.get(Owner.class, ownerId);
+            Property property = session.get(Property.class, propertyId);
+
+            if (owner != null && property != null) {
+                owner.getProperties().add(property);
+                session.update(owner);
+                transaction.commit();
+            } else {
+                System.out.println("Owner or property not found.");
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred while adding property to owner: " + e.getMessage());
+            if (transaction != null) {
+                transaction.rollback();
             }
         }
     }
+}
 
