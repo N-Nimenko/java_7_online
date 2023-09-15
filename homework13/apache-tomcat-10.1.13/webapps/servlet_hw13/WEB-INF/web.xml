@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"
+         metadata-complete="true">
+
+    <display-name>Welcome to Tomcat</display-name>
+    <description>
+        Welcome to Tomcat
+    </description>
+
+    <servlet>
+        <servlet-name>SculptorReviewController</servlet-name>
+        <servlet-class>servlet.controller.sculptor.SculptorReviewController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptorCreateController</servlet-name>
+        <servlet-class>servlet.controller.sculptor.SculptorCreateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptorUpdateController</servlet-name>
+        <servlet-class>servlet.controller.sculptor.SculptorUpdateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptorDeleteController</servlet-name>
+        <servlet-class>servlet.controller.sculptor.SculptorDeleteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptorFindController</servlet-name>
+        <servlet-class>servlet.controller.sculptor.SculptorFindController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptureReviewController</servlet-name>
+        <servlet-class>servlet.controller.sculpture.SculptureReviewController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptureCreateController</servlet-name>
+        <servlet-class>servlet.controller.sculpture.SculptureCreateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptureUpdateController</servlet-name>
+        <servlet-class>servlet.controller.sculpture.SculptureUpdateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptureDeleteController</servlet-name>
+        <servlet-class>servlet.controller.sculpture.SculptureDeleteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptureFindController</servlet-name>
+        <servlet-class>servlet.controller.sculpture.SculptureFindController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SculptorSculptureReviewController</servlet-name>
+        <servlet-class>servlet.controller.sculptureOfsculptor.SculptorSculptureReviewController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddSculptureToSculptorController</servlet-name>
+        <servlet-class>servlet.controller.sculptureOfsculptor.AddSculptureToSculptorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListAllSculpturesOfSculptor</servlet-name>
+        <servlet-class>servlet.controller.sculptureOfsculptor.ListAllSculpturesOfSculptor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteRelationSculptorSculpture</servlet-name>
+        <servlet-class>servlet.controller.sculptureOfsculptor.DeleteRelationSculptorSculpture</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SculptorReviewController</servlet-name>
+        <url-pattern>/sculptor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptorCreateController</servlet-name>
+        <url-pattern>/sculptor-new</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptorUpdateController</servlet-name>
+        <url-pattern>/sculptor-update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptorDeleteController</servlet-name>
+        <url-pattern>/sculptor-delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptorFindController</servlet-name>
+        <url-pattern>/sculptor-find</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptureReviewController</servlet-name>
+        <url-pattern>/sculpture</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptureCreateController</servlet-name>
+        <url-pattern>/sculpture-new</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptureUpdateController</servlet-name>
+        <url-pattern>/sculpture-update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptureDeleteController</servlet-name>
+        <url-pattern>/sculpture-delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptureFindController</servlet-name>
+        <url-pattern>/sculpture-find</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SculptorSculptureReviewController</servlet-name>
+        <url-pattern>/sculptorSculpture</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSculptureToSculptorController</servlet-name>
+        <url-pattern>/sculptorSculpture-add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListAllSculpturesOfSculptor</servlet-name>
+        <url-pattern>/sculptorSculpture-list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteRelationSculptorSculpture</servlet-name>
+        <url-pattern>/sculptorSculpture-delete</url-pattern>
+    </servlet-mapping>
+</web-app>
