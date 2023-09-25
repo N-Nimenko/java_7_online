@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .form-control:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        .form-label {
+            font-weight: bold;
+            font-style: italic;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-header"
+             style="background-color: #1e3c72; color: white; font-weight: bold; text-align: center; padding: 10px; border-radius: 5px;">
+            Update Sculptor
+        </div>
+        <div class="card-body">
+            <form th:href="@{'/sculptors/' + ${sculptor.getId()} + '/update'}" th:object="${sculptor}" method="post">
+                <div class="mb-3">
+                    <label for="fn" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="fn" aria-describedby="fnHelp" th:field="*{firstName}" th:value="${sculptor.getFirstName()}">
+                </div>
+                <div class="mb-3">
+                    <label for="ln" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="ln" th:field="*{lastName}" th:value="${sculptor.getLastName()}">
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="text" class="form-control" id="age" th:field="*{age}" th:value="${sculptor.getAge()}">
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

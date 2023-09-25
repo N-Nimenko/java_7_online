@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout}">
+<head>
+    <title>Title</title>
+    <style>
+        th {
+            text-align: center;
+            padding: 10px;
+            font-style: italic;
+        }
+
+        th:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #1e3c72;
+            margin-top: 5px;
+        }
+
+        td {
+            text-align: center;
+            padding-right: 10px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .btn-primary {
+            background-color: #1e3c72;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <div class="card">
+        <div class="card-header"
+             style="background-color: #1e3c72; color: white; font-weight: bold; text-align: center; padding: 10px; border-radius: 5px;">
+            All Sculptures
+        </div>
+        <div class="card-body">
+            <table class="table table-sm table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Material Of Sculpture</th>
+                    <th>Artistic Style</th>
+                    <th>Year Of Publishing</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="sculpture : ${sculptures}">
+                    <td style="background-color: #1e3c72; color: white; border-radius: 10px; text-align: center; padding: 5px;">
+                        <span th:text="${sculpture.getId()}"></span>
+                    </td>
+                    <td th:text="${sculpture.getName()}"></td>
+                    <td th:text="${sculpture.getMaterialOfSculpture()}"></td>
+                    <td th:text="${sculpture.getArtisticStyle()}"></td>
+                    <td th:text="${sculpture.getYearOfPublishing()}"></td>
+                    <td>
+                        <a
+                                type="button"
+                                class="btn btn-primary mt-2"
+                                role="button"
+                                th:href="@{'/sculptures/' + ${sculpture.getId()} + '/update'}">
+                            Update
+                        </a>
+                    </td>
+                    <td>
+                        <form th:action="@{'/sculptures/' + ${sculpture.getId()}}" method="post"
+                              style="display: inline;">
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <button type="submit" class="btn btn-danger mt-2">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <a type="button" class="btn btn-primary mt-2" role="button" th:href="@{/sculptures/new}">New sculpture</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

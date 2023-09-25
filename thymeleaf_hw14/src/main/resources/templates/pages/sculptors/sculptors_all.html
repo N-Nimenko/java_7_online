@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout}">
+<head>
+    <title>Title</title>
+    <style>
+        th {
+            text-align: center;
+            padding: 10px;
+            font-style: italic;
+        }
+
+        th:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #1e3c72;
+            margin-top: 5px;
+        }
+
+        td {
+            text-align: center;
+            padding-right: 10px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .btn-primary {
+            background-color: #1e3c72;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <div class="card">
+        <div class="card-header"
+             style="background-color: #1e3c72; color: white; font-weight: bold; text-align: center; padding: 10px; border-radius: 5px;">
+            All Sculptors
+        </div>
+        <div class="card-body">
+            <table class="table table-sm table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="sculptor : ${sculptors}">
+                    <td style="background-color: #1e3c72; color: white; border-radius: 10px; text-align: center; padding: 5px;">
+                        <span th:text="${sculptor.getId()}"></span>
+                    </td>
+                    <td th:text="${sculptor.getFirstName()}"></td>
+                    <td th:text="${sculptor.getLastName()}"></td>
+                    <td th:text="${sculptor.getAge()}"></td>
+                    <td>
+                        <a
+                                type="button"
+                                class="btn btn-primary mt-2"
+                                role="button"
+                                th:href="@{'/sculptors/' + ${sculptor.getId()} + '/update'}">
+                            Update
+                        </a>
+                    </td>
+                    <td>
+                        <form th:action="@{'/sculptors/' + ${sculptor.getId()}}" method="post"
+                              style="display: inline;">
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <button type="submit" class="btn btn-danger mt-2">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <a type="button" class="btn btn-primary mt-2" role="button" th:href="@{/sculptors/new}">New sculptor</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
